@@ -26,7 +26,7 @@ contract Will {
     }
 
     function withdraw(uint256 amount) external onlyOwner{
-        require(address(this).balance>amount);
+        require(address(this).balance>=amount);
         if(amount>0)
         {
             owner.transfer(amount);

@@ -5,23 +5,21 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
-
+require('dotenv').config()
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  const value = hre.ethers.parseEther(process.env.INITIAL_AMOUNT);
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
+  const inheritance = await hre.ethers.deployContract("Will", [process.env.HEIR_ADDRESS], {
+    value: value,
   });
 
   await lock.waitForDeployment();
 
   console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+    `Inheritance with ${ethers.formatEther(
+      value
+    )}ETH deployed to ${inheritance.target}`
   );
 }
 
