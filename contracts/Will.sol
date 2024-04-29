@@ -26,12 +26,14 @@ contract Will {
     }
 
     function withdraw(uint256 amount) external onlyOwner{
-        require(address(this).balance>=amount);
-        if(amount>0)
+       
+       
+       lastAction=block.timestamp; 
+       if(amount>0)
         {
+            require(address(this).balance>=amount);
             owner.transfer(amount);
         }
-        lastAction=block.timestamp;
     }
 
     function takeControl(address payable _heir) external onlyHeir{
