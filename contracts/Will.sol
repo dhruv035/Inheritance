@@ -32,7 +32,8 @@ contract Will {
        if(amount>0)
         {
             require(address(this).balance>=amount);
-            owner.transfer(amount);
+            (bool sent, ) = owner.call{value: amount}("");
+            require(sent, "Failed to send Ether");
         }
     }
 
