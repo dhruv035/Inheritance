@@ -13,6 +13,8 @@ contract Will {
 
     constructor(address payable _heir) payable {
         heir = _heir;
+        owner = payable(msg.sender);
+        lastAction = block.timestamp;
     }
 
     modifier onlyOwner{
@@ -41,5 +43,8 @@ contract Will {
         require(block.timestamp>lastAction+Timeout);
         owner=heir;
         heir=_heir;
+        lastAction = block.timestamp;
     }
+
+    receive() external payable {}
 }
