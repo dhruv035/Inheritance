@@ -1,7 +1,24 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "build": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.ts --network sepolia",
+    "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost",
+    "verify": "npx hardhat verify --network sepolia",
+    "node": "npx hardhat node",
+    "typechain": "npx hardhat typechain"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
-    "hardhat": "^2.18.3"
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.14.1",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.18.3",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "^5.8.3"
   }
 }

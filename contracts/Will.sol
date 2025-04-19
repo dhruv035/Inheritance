@@ -9,7 +9,7 @@ contract Will {
     address payable public heir;
     address payable public owner;
     uint256 lastAction;
-    uint256 public Timeout = 30 days;
+    uint256 public Timeout = 30 seconds;
 
     constructor(address payable _heir) payable {
         heir = _heir;
