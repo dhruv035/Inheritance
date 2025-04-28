@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  quick-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print Variables
+        run: |
+          echo "Repository URL: ${{ github.event.repository.html_url }}"
+          echo "Branch Name: ${{ github.ref_name }}"
+          echo "Issue Number: ${{ github.event.issue.number }}"
