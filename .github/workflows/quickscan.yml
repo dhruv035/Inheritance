@@ -1,3 +1,4 @@
+
 on:
   pull_request:
     branches:
@@ -8,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Print Variables
+      - name: Quick Scan
         run: |
-          echo '${{ toJSON(github.event) }}' | jq '.'
+         
+            echo "repository_url: ${{ github.event.repository.html_url }}"
+            echo "branch_name: ${{ github.event.pull_request.head.ref }}"
+            echo "issue_number: ${{ github.event.number }}"
+            
