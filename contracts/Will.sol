@@ -17,8 +17,6 @@ contract Will {
         lastAction = block.timestamp;
     }
 
-
-
     modifier onlyOwner{
         require(msg.sender==owner);
         _;
