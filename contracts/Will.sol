@@ -22,10 +22,15 @@ contract Will {
         _;
     }
 
+
     modifier onlyHeir{
         require(msg.sender==heir);
         _;
     }
+
+
+
+
 
     function withdraw(uint256 amount) external onlyOwner{
        
