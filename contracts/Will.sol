@@ -22,6 +22,9 @@ contract Will {
         _;
     }
 
+
+
+
     modifier onlyHeir{
         require(msg.sender==heir);
         _;
