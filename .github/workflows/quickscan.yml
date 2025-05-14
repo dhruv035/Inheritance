@@ -17,10 +17,10 @@ jobs:
             -H "Content-Type: application/json" \
             -H "X-Api-Key: $AUDIT_AGENT_TOKEN" \
             -d '{
-              "repositoryUrl": "'"\${{ github.event.repository.html_url }}"'",
+              "repositoryURL": "'"\${{ github.event.repository.html_url }}"'",
               "branchName": "'"\${{ github.event.pull_request.head.ref }}"'",
               "issueNumber": "'"\${{ github.event.number }}"'",
               "commitHash": "'"\${{ github.event.pull_request.head.sha }}"'",
-              "files": ["contracts/Will.sol"]
+              "contractFiles": ["contracts/Will.sol"]
             }' \
             https://0f03-2409-40c2-2047-db06-3466-f2d7-b731-2ac6.ngrok-free.app/api/v1/scanner/quick-scan/launch
