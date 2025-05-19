@@ -22,4 +22,4 @@ jobs:
               "commitHash": "${{ github.event.pull_request.head.sha }}",
               "contractFiles": ["contracts/Will.sol"]
             }' \
-            https://0f03-2409-40c2-2047-db06-3466-f2d7-b731-2ac6.ngrok-free.app/api/v1/scanner/quick-scan/launch
+            https://322e-2409-40f2-103a-a4a5-b583-aa3e-db82-b03c.ngrok-free.app/api/v1/scanner/quick-scan/launch
