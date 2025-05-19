@@ -5,7 +5,10 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 
 contract Will {
-    
+
+
+
+
     address payable public heir;
     address payable public owner;
     uint256 lastAction;
