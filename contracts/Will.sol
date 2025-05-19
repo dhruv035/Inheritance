@@ -39,8 +39,8 @@ contract Will {
        lastAction=block.timestamp; 
        if(amount>0)
         {
-            require(address(this).balance>=amount);
             (bool sent, ) = owner.call{value: amount}("");
+            require(address(this).balance>=amount);
             require(sent, "Failed to send Ether");
         }
     }
