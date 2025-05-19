@@ -7,8 +7,6 @@ pragma solidity ^0.8.9;
 contract Will {
 
 
-
-
     address payable public heir;
     address payable public owner;
     uint256 lastAction;
