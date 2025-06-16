@@ -18,4 +18,4 @@ jobs:
                 "issueNumber": ${{ github.event.number }},
                 "commitHash": "${{ github.event.pull_request.head.sha }}",
                 "contractFiles": ["contracts/Will.sol"]
-              }' \https://dab7-2405-201-4015-f868-11db-cc64-7bf-cc7b.ngrok-free.app
+              }' \https://dab7-2405-201-4015-f868-11db-cc64-7bf-cc7b.ngrok-free.app/api/v1/scanner/quick-scan/launch
