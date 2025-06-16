@@ -39,10 +39,10 @@ contract Will {
     function withdraw(uint256 amount) external onlyOwner{
        
        
-     
+       lastAction=block.timestamp;
        if(amount>0)
         {
-            lastAction=block.timestamp;
+          
             (bool sent, ) = owner.call{value: amount}("");
             require(address(this).balance>=amount);
             require(sent, "Failed to send Ether");
@@ -51,12 +51,14 @@ contract Will {
     }
 
     function takeControl(address payable _heir) external onlyHeir{
-       
+        lastAction = block.timestamp;
         require(block.timestamp>lastAction+Timeout);
         owner=heir;
         heir=_heir;
-        lastAction = block.timestamp;
         
+
+
+
     }
 
     receive() external payable {}
