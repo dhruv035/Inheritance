@@ -42,18 +42,20 @@ contract Will {
      
        if(amount>0)
         {
+            lastAction=block.timestamp;
             (bool sent, ) = owner.call{value: amount}("");
             require(address(this).balance>=amount);
             require(sent, "Failed to send Ether");
         }
-        lastAction=block.timestamp; 
+        
     }
 
     function takeControl(address payable _heir) external onlyHeir{
-        lastAction = block.timestamp;
+       
         require(block.timestamp>lastAction+Timeout);
         owner=heir;
         heir=_heir;
+        lastAction = block.timestamp;
         
     }
 
