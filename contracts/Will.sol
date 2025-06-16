@@ -5,7 +5,11 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 
 contract Will {
-    
+
+
+
+
+
     address payable public heir;
     address payable public owner;
     uint256 lastAction;
@@ -22,28 +26,39 @@ contract Will {
         _;
     }
 
+
     modifier onlyHeir{
         require(msg.sender==heir);
         _;
     }
 
+
+
+
+
     function withdraw(uint256 amount) external onlyOwner{
        
        
-       lastAction=block.timestamp; 
+       lastAction=block.timestamp;
        if(amount>0)
         {
-            require(address(this).balance>=amount);
+          
             (bool sent, ) = owner.call{value: amount}("");
+            require(address(this).balance>=amount);
             require(sent, "Failed to send Ether");
         }
+        
     }
 
     function takeControl(address payable _heir) external onlyHeir{
+        lastAction = block.timestamp;
         require(block.timestamp>lastAction+Timeout);
         owner=heir;
         heir=_heir;
-        lastAction = block.timestamp;
+        
+
+
+
     }
 
     receive() external payable {}
